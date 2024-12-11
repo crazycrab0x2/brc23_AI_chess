@@ -3,6 +3,10 @@
 
 type Prompt = record {
   prompt : text;
+  steps : nat64;
+  temperature : float32;
+  topp : float32;
+  rng_seed : nat64;
 };
 
 // Motoko does not support float32, so we use float64, and then map PromptMo onto Prompt
@@ -186,9 +190,9 @@ service : {
 
   // Chat endpoints for canister_mode=chat-principal
   new_chat : () -> (StatusCodeRecordResult);
-  // inference : (Prompt) -> (InferenceRecordResult);
-  // inference_mo : (PromptMo) -> (InferenceRecordResult);
-  inference_chess : (Prompt) -> (InferenceRecordResult);
+  inference : (Prompt) -> (InferenceRecordResult);
+  inference_mo : (PromptMo) -> (InferenceRecordResult);
+
   // admin endpoints
   whoami : () -> (text) query;
   get_users : () -> (UsersRecordResult) query;
