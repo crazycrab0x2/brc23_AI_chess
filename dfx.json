@@ -1,0 +1,34 @@
+{
+    "version": 1,
+    "canisters": {
+      "chess23": {
+        "type": "custom",
+        "candid": "src/chess23.did",
+        "wasm": "build/chess23.wasm"
+      }
+      ,
+      "frontend": {
+        "declarations": {
+          "node_compatibility": true,
+           "env_override": ""
+        },
+      "dependencies": [
+        "chess23"
+      ],
+      "frontend": {
+        "entrypoint": "out/index.html"
+      },
+      "source": [
+        "out"
+      ],
+      "type": "assets"
+    }
+    },
+  
+    "defaults": {
+      "build": {
+        "args": "",
+        "packtool": ""
+      }
+    }
+  }
